@@ -68,6 +68,7 @@ def decrypt(encoded, key):
             decrypted += str(char_og)
         else:
             decrypted += char
+    return decrypted
 
 
 def crack():
@@ -75,8 +76,15 @@ def crack():
 
 
 if __name__ == "__main__":
-    text = 'Its a trap!'
+    text = 'Its a trap! Watch your 6!'
     cipher = encrypt(text, 3)
-
     print(f"Plain text message: {text}")
     print(f"Encrypted message: {cipher}")
+
+    encoded = 'Lwv d wuds! Zdwfk brxu 9!'
+    decrypted_msg = decrypt(encoded, 3)
+    print(f"Cipher text: {encoded}")
+    print(f"Decrypted message: {decrypted_msg}")
+
+    print(encrypt('zzz', 1))
+    print(encrypt('abc', 27))
