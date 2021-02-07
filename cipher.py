@@ -1,23 +1,7 @@
+# from nltk.stem import WordNetLemmatizer
+# from nltk.corpus import stopwords
+# from nltk.tokenize import word_tokenize
 import nltk
-
-# Encryption algo should:
-# Check whether a letter
-# If not letter, add the same to the cipher text without changing it
-# If a letter, check whether upper or lower
-# maintain the letter casing
-# if traversal is greater than that of the alphabet, wrap to the beginning
-# add new letter to the cipher
-
-
-# def generate_key():
-#     key = int(
-#         input('Give Caesar a key.. a number between one and twenty-five please. >'))
-
-#     while key < 1 or key > 25:
-#         print("Invalid key. Enter a number between 1 and 25")
-#         key = int(input())
-
-#     print(f"Caesar has graciously generated {key} as your key")
 
 
 def encrypt(text, key):
@@ -71,8 +55,20 @@ def decrypt(encoded, key):
     return decrypted
 
 
-def crack():
-    pass
+def crack(decoded):
+    # from nltk.stem import WordNetLemmatizer
+    # from nltk.corpus import stopwords
+    # from nltk.tokenize import word_tokenize
+    # if cipher_text == word('en')
+    # words = set(nltk.corpus.words.words())
+    cipher_text = 'Lwv d wuds! Zdwfk brxu 9!'
+    # ' '.join(w for w in nltk.wordpunct_tokenize(cipher_text)
+    #          if w.lower() in words or not w.isalpha())
+    # ignore = set(stopwords.wor)
+    for i in range(0, 26):
+        decoded = decrypt(cipher_text, i)
+        print("Key count: {}, decrypted text: {}".format(i, decoded))
+    return cipher_text
 
 
 if __name__ == "__main__":
@@ -88,3 +84,6 @@ if __name__ == "__main__":
 
     print(encrypt('zzz', 1))
     print(encrypt('abc', 27))
+
+    cracked_msg = crack(decrypt)
+    print(f"Cracked message: {cracked_msg}")
