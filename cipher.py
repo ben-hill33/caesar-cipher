@@ -1,7 +1,10 @@
 # from nltk.stem import WordNetLemmatizer
 # from nltk.corpus import stopwords
 # from nltk.tokenize import word_tokenize
-import nltk
+
+
+import re
+# wordlist = [w for w in nltk.corpus.words.words('en') if w.islower()]
 
 
 def encrypt(text, key):
@@ -56,19 +59,25 @@ def decrypt(encoded, key):
 
 
 def crack(decoded):
+    # import nltk
+    # nltk.download('words', quiet=True)
+    # from nltk.corpus import words
+    # word_list = words.words()
+
+    cipher_text = 'Lwv d wuds! Zdwfk brxu 9!'
+    for i in range(0, 26):
+        decoded = decrypt(cipher_text, i)
+
+        print("Key count: {}, decrypted text: {}".format(i, decoded))
+    return cipher_text
     # from nltk.stem import WordNetLemmatizer
     # from nltk.corpus import stopwords
     # from nltk.tokenize import word_tokenize
     # if cipher_text == word('en')
     # words = set(nltk.corpus.words.words())
-    cipher_text = 'Lwv d wuds! Zdwfk brxu 9!'
     # ' '.join(w for w in nltk.wordpunct_tokenize(cipher_text)
     #          if w.lower() in words or not w.isalpha())
     # ignore = set(stopwords.wor)
-    for i in range(0, 26):
-        decoded = decrypt(cipher_text, i)
-        print("Key count: {}, decrypted text: {}".format(i, decoded))
-    return cipher_text
 
 
 if __name__ == "__main__":
@@ -85,5 +94,5 @@ if __name__ == "__main__":
     print(encrypt('zzz', 1))
     print(encrypt('abc', 27))
 
-    cracked_msg = crack(decrypt)
-    print(f"Cracked message: {cracked_msg}")
+    cracked_msg = crack(decrypted_msg)
+    print(cracked_msg)
